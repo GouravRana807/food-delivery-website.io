@@ -1,0 +1,753 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Kaushan+Script&family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
+:root{
+    --Inter:'Inter', sans-serif;
+    --Kaushan: 'Kaushen Script',cursive;
+    --Mont: 'Montserrat',sans-serif;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    /* line-height: 1.5; */
+    font-family: var(--Mont);
+    background-color: #44355b;
+    color: #fff;
+}
+.ikr{
+/* display: inline-block;   */
+font-size: 1em;
+background: rgb(14, 10, 228);
+padding: 5px 30px;
+text-decoration: none;
+color: #fff;
+margin-top: 10px;
+text-transform: uppercase;
+letter-spacing: 2px;
+transition: 0.2s;
+border-radius: 5px;
+outline: none;
+border: none;
+}
+.ikr:hover{
+    letter-spacing: 3px;
+}
+.menu{
+    margin: 2rem 0;
+}
+.menu-container{
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+img{
+    width: 100%;
+    display: block;
+}
+.menu-head{
+    text-align: center;
+}
+.menu-head h2{
+    font-family: var(--Kaushan);
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+.menu-head h1{
+    font-size: 2.2rem;
+    font-family: cursive;
+}
+.menu-head p{
+    font-weight: 300;
+    padding: 1.8rem 0;
+}
+.menu-btns{
+    padding: 0.6rem 0;
+    display: flex;
+    justify-content: center;
+}
+.menu-btn{
+    font-family: var(--Inter);
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: none;
+    border: none;
+    color: #ff9505;
+    display: block;
+    margin: 0 1rem;
+    cursor: pointer;
+    outline: 0;
+    transition: opacity 0.4s ease-out;
+}
+.menu-btn::after{
+    content: "";
+    display: block;
+    height: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #ff9505;
+    margin-top: 0.5rem;
+    width: 0;
+    transition: width 0.4s ease-out; 
+}
+.menu-btn:hover::after{
+    width: 100%;
+}
+.menu-btn:hover{
+    opacity: 0.8;
+}
+.active-btn{
+    color: #fff;
+}
+.food-items{
+    margin:2rem 0;
+}
+.food-item{
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fff;
+    color: #000;
+    margin: 0.6rem 0;
+    box-shadow: 0 0 16px -4px rgba(0, 0, 0, 0.75);
+    display:'' ;
+    animation: fadeIn 2s;
+    transition: 0.7s ease-in-out;
+}
+/* .food-item:hover{
+background-color: #000;
+} */
+.food-item:hover{
+    border-radius: 4px;
+    overflow: hidden;
+    background: rgb(32, 27, 27);
+    color: rgb(243, 231, 231);
+    margin: 0.6rem 0;
+    box-shadow: 0 0 16px -4px rgba(0, 0, 0, 0.75);
+    display:'' ;
+    animation: fadeIn 2s;
+    transition: 0.7s ease-in-out;
+}
+.food-item:hover .food-img img{
+    border-radius: 65px;
+    transition: 0.7s ease-in-out;
+
+}
+@keyframes fadeIn{
+    form{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+.food-img img{
+    border-radius: 4px;
+}
+.food-content{
+    padding: 1rem;
+}
+.food-name{
+    font-family: var(--Inter);
+    color: #ff9505;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+.line{
+    width: 100px;
+    height: 3px;
+    background: #ff9505;
+}
+.food-price{
+    padding: 0.4rem 0;
+    font-weight: 600;
+    font-size: 1.4rem;
+    opacity: 0.8;
+}
+.rating{
+    display: flex;
+    list-style: none;
+}
+.rating .fa-star{
+    margin-right: 0.4rem;
+    /* color:#c6f00c; */
+}
+.category{
+    padding-top: 0.2rem;
+    font-size: 1rem;
+    font-weight:800;
+    font-family: var(--Inter);
+}
+.category span{
+    font-weight: 500;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+a:hover{
+    color: aliceblue;
+}
+@media screen and (min-width:600px) {
+    .food-item{
+        display: grid;
+        grid-template-columns: 25% auto;
+        align-items: center;
+        padding: 1rem;
+        column-gap: 1rem;
+    }
+   .food-content{
+       padding: 0;
+   } 
+}
+@media screen and (min-width:768px){
+    .menu-head p{
+        width: 70%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+@media screen and (min-width:992px){
+    .menu-head p{
+        width: 50%;
+    }
+    .food-items{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        column-gap: 2rem;
+
+    }
+}
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+</head>
+<body>
+    <section class="menu">
+        <div class="menu-container">
+            <div class="menu-head">
+                <a href="./index.html"><h1>HEATHYMEAL</h1></a>
+                <h2>Special Food Menu</h2>
+                <!-- <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor ad velit doloremque nemo dolore asperiores aperiam sunt, commodi rerum quibusdam odit ratione tenetur possimus voluptas!</p> -->
+            </div>
+<div class="menu-btns">
+    <button type="button" class="menu-btn active-btn" id="featured">featured</button>
+    <button type="button" class="menu-btn" id="today-special">today's special</button>
+    <button type="button" class="menu-btn" id="new-arrival">new arrivals</button>
+</div>
+    <div class="food-items">
+       <!-- items -->
+        <div class="food-item featured">
+            <div class="food-img">
+                <img src="./productsffoodimg/banana-bread-with-butter-and-milk.jpg" alt="food img">
+            </div>
+            <div class="food-content">
+                <h2 class="food-name">
+                    Banana Bread With Butter & Milk
+                </h2>
+                <div class="line"></div>
+                <h3 class="food-price">$25.00</h3>
+                <ul class="rating">
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="far fa-star"></i></li>
+                </ul>
+                <p class="category">cateagories:
+                    <span>featured</span>
+                </p>
+            </div>
+            <button class="ikr">Buy</button>
+        </div>
+        <!-- end of items -->
+
+           <!-- items -->
+           <div class="food-item today-special">
+            <div class="food-img">
+                <img src="./productsffoodimg/barbecue.jpg" alt="food img">
+            </div>
+            <div class="food-content">
+                <h2 class="food-name">
+                    barbecue
+                </h2>
+                <div class="line"></div>
+                <h3 class="food-price">$70.00</h3>
+                <ul class="rating">
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="far fa-star"></i></li>
+                </ul>
+                <p class="category">categories:
+                    <span>Today's Special</span>
+                </p>
+            </div>
+            <button class="ikr">Buy</button>
+        </div>
+        <!-- end of items -->
+
+           <!-- items -->
+           <div class="food-item new-arrival">
+            <div class="food-img">
+                <img src="./productsffoodimg/barbecued-roasted-duck-ramen.jpg" alt="food img">
+            </div>
+            <div class="food-content">
+                <h2 class="food-name">
+                    Barbecue Roasted Duck Ramen
+                </h2>
+                <div class="line"></div>
+                <h3 class="food-price">$35.00</h3>
+                <ul class="rating">
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="far fa-star"></i></li>
+                </ul>
+                <p class="category">categories:
+                    <span>New Arrivals</span>
+                </p>
+            </div>
+            <button class="ikr">Buy</button>
+        </div>
+        <!-- end of items -->
+
+           <!-- items -->
+        <div class="food-item featured">
+            <div class="food-img">
+                <img src="./productsffoodimg/bread-with-seeds-and-butter.jpg" alt="food img">
+            </div>
+            <div class="food-content">
+                <h2 class="food-name">
+                    Bread With Seeds & Butter
+                </h2>
+                <div class="line"></div>
+                <h3 class="food-price">$27.00</h3>
+                <ul class="rating">
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="far fa-star"></i></li>
+                </ul>
+                <p class="category">categories:
+                    <span>featured</span>
+                </p>
+            </div>
+            <button class="ikr">Buy</button>
+        </div>
+        <!-- end of items -->
+
+           <!-- items -->
+           <div class="food-item today-special">
+            <div class="food-img">
+                <img src="./productsffoodimg/breakfast-sandwich-with-hummus-spread-and-fresh-vegetables.jpg" alt="food img">
+            </div>
+            <div class="food-content">
+                <h2 class="food-name">
+                    Breadfast Sandwitch
+                </h2>
+                <div class="line"></div>
+                <h3 class="food-price">$15.00</h3>
+                <ul class="rating">
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="far fa-star"></i></li>
+                </ul>
+                <p class="category">categories:
+                    <span>Today's Special</span>
+                </p>
+            </div>
+            <button class="ikr">Buy</button>
+        </div>
+        <!-- end of items -->
+
+           <!-- items -->
+           <div class="food-item new-arrival">
+            <div class="food-img">
+                <img src="./productsffoodimg/brunch-skillet-with-eggs-and-tomatoes.jpg" alt="food img">
+            </div>
+            <div class="food-content">
+                <h2 class="food-name">
+                    Branch Skillet
+                </h2>
+                <div class="line"></div>
+                <h3 class="food-price">$35.00</h3>
+                <ul class="rating">
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="far fa-star"></i></li>
+                </ul>
+                <p class="category">categories:
+                    <span>New Arrivals</span>
+                </p>
+            </div>
+            <button class="ikr">Buy</button>
+        </div>
+        <!-- end of items -->
+
+          <!-- items -->
+          <div class="food-item featured">
+            <div class="food-img">
+                <img src="./productsffoodimg/chicken-breast-steaks-with-beetroot.jpg" alt="food img">
+            </div>
+            <div class="food-content">
+                <h2 class="food-name">
+                    Chicken Breast Steaks
+                </h2>
+                <div class="line"></div>
+                <h3 class="food-price">$15.00</h3>
+                <ul class="rating">
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="far fa-star"></i></li>
+                </ul>
+                <p class="category">categories:
+                    <span>featured</span>
+                </p>
+            </div>
+            <button class="ikr">Buy</button>
+        </div>
+        <!-- end of items -->
+
+           <!-- items -->
+           <div class="food-item today-special">
+            <div class="food-img">
+                <img src="./productsffoodimg/chicken-legs-with-tomatoes-peppers-and-oranges.jpg" alt="food img">
+            </div>
+            <div class="food-content">
+                <h2 class="food-name">
+                    Chiken Legs
+                </h2>
+                <div class="line"></div>
+                <h3 class="food-price">$29.00</h3>
+                <ul class="rating">
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="far fa-star"></i></li>
+                </ul>
+                <p class="category">categories:
+                    <span>Today's Special</span>
+                </p>
+            </div>
+            <button class="ikr">Buy</button>
+        </div>
+        <!-- end of items -->
+
+           <!-- items -->
+           <div class="food-item new-arrival">
+            <div class="food-img">
+                <img src="./productsffoodimg/eggplant-cannelloni.jpg" alt="food img">
+            </div>
+            <div class="food-content">
+                <h2 class="food-name">
+                    Eggplant Cannelloni
+                </h2>
+                <div class="line"></div>
+                <h3 class="food-price">$35.00</h3>
+                <ul class="rating">
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="far fa-star"></i></li>
+                </ul>
+                <p class="category">categories:
+                    <span>New Arrivals</span>
+                </p>
+            </div>
+            <button class="ikr">Buy</button>
+        </div>
+        <!-- end of items -->
+
+         <!-- items -->
+         <div class="food-item featured">
+            <div class="food-img">
+                <img src="./productsffoodimg/french-fries-with-steak-and-beer.jpg" alt="food img">
+            </div>
+            <div class="food-content">
+                <h2 class="food-name">
+                    French Fries
+                </h2>
+                <div class="line"></div>
+                <h3 class="food-price">$9.00</h3>
+                <ul class="rating">
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="far fa-star"></i></li>
+                </ul>
+                <p class="category">categories:
+                    <span>featured</span>
+                </p>
+            </div>
+            <button class="ikr">Buy</button>
+        </div>
+        <!-- end of items -->
+
+           <!-- items -->
+           <div class="food-item today-special">
+            <div class="food-img">
+                <img src="./productsffoodimg/fried-rice-with-shrimps.jpg" alt="food img">
+            </div>
+            <div class="food-content">
+                <h2 class="food-name">
+                    Fried Rice
+                </h2>
+                <div class="line"></div>
+                <h3 class="food-price">$5.00</h3>
+                <ul class="rating">
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="far fa-star"></i></li>
+                </ul>
+                <p class="category">categories:
+                    <span>Today's Special</span>
+                </p>
+            </div>
+            <button class="ikr">Buy</button>
+        </div>
+        <!-- end of items -->
+
+           <!-- items -->
+           <div class="food-item new-arrival">
+            <div class="food-img">
+                <img src="./productsffoodimg/king-prawns-with-green-lettuce.jpg" alt="food img">
+            </div>
+            <div class="food-content">
+                <h2 class="food-name">
+                    King Prawns
+                </h2>
+                <div class="line"></div>
+                <h3 class="food-price">$11.00</h3>
+                <ul class="rating">
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="far fa-star"></i></li>
+                </ul>
+                <p class="category">categories:
+                    <span>New Arrivals</span>
+                </p>
+            </div>
+            <button class="ikr">Buy</button>
+        </div>
+        <!-- end of items -->
+
+         <!-- items -->
+         <div class="food-item featured">
+            <div class="food-img">
+                <img src="./productsffoodimg/noodles-with-egg-and-vegetables.jpg" alt="food img">
+            </div>
+            <div class="food-content">
+                <h2 class="food-name">
+                    Noodles
+                </h2>
+                <div class="line"></div>
+                <h3 class="food-price">$5.00</h3>
+                <ul class="rating">
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="far fa-star"></i></li>
+                </ul>
+                <p class="category">categories:
+                    <span>featured</span>
+                </p>
+            </div>
+            <button class="ikr">Buy</button>
+        </div>
+        <!-- end of items -->
+
+           <!-- items -->
+           <div class="food-item today-special">
+            <div class="food-img">
+                <img src="./productsffoodimg/pizza-with-a-lot-of-cheese.jpg" alt="food img">
+            </div>
+            <div class="food-content">
+                <h2 class="food-name">
+                    cheese pizza
+                </h2>
+                <div class="line"></div>
+                <h3 class="food-price">$12.00</h3>
+                <ul class="rating">
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="far fa-star"></i></li>
+                </ul>
+                <p class="category">categories:
+                    <span>Today's Special</span>
+                </p>
+            </div>
+            <button class="ikr">Buy</button>
+        </div>
+        <!-- end of items -->
+
+           <!-- items -->
+           <div class="food-item new-arrival">
+            <div class="food-img">
+                <img src="./productsffoodimg/summer-juicy-beef-burger.jpg" alt="food img">
+            </div>
+            <div class="food-content">
+                <h2 class="food-name">
+                    Juicy beef burger
+                </h2>
+                <div class="line"></div>
+                <h3 class="food-price">$14.00</h3>
+                <ul class="rating">
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="far fa-star"></i></li>
+                </ul>
+                <p class="category">categories:
+                    <span>New Arrivals</span>
+                </p>
+            </div>
+            <button class="ikr">Buy</button>
+        </div>
+        <!-- end of items -->
+
+         <!-- items -->
+         <div class="food-item featured">
+            <div class="food-img">
+                <img src="./productsffoodimg/tacos-with-pulled-pork-fresh-vegetables-and-cream.jpg" alt="food img">
+            </div>
+            <div class="food-content">
+                <h2 class="food-name">
+                    Taces with pulled park
+                </h2>
+                <div class="line"></div>
+                <h3 class="food-price">$22.00</h3>
+                <ul class="rating">
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="far fa-star"></i></li>
+                </ul>
+                <p class="category">categories:
+                    <span>featured</span>
+                </p>
+            </div>
+            <button class="ikr">Buy</button>
+        </div>
+        <!-- end of items -->
+
+           <!-- items -->
+           <div class="food-item today-special">
+            <div class="food-img">
+                <img src="./productsffoodimg/tiny-pickles-on-top-of-burger.jpg" alt="food img">
+            </div>
+            <div class="food-content">
+                <h2 class="food-name">
+                    Tiny pickles
+                </h2>
+                <div class="line"></div>
+                <h3 class="food-price">$7.00</h3>
+                <ul class="rating">
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="far fa-star"></i></li>
+                </ul>
+                <p class="category">categories:
+                    <span>Today's Special</span>
+                </p>
+            </div>
+            <button class="ikr">Buy</button>
+        </div>
+        <!-- end of items -->
+
+           <!-- items -->
+           <div class="food-item new-arrival">
+            <div class="food-img">
+                <img src="./productsffoodimg/tortilla-chips-with-salsa.jpg" alt="food img">
+            </div>
+            <div class="food-content">
+                <h2 class="food-name">
+                    Tortilla chips
+                </h2>
+                <div class="line"></div>
+                <h3 class="food-price">$26.00</h3>
+                <ul class="rating">
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="fas fa-star"></i></li>
+                  <li><i class="far fa-star"></i></li>
+                </ul>
+                <p class="category">categories:
+                    <span>New Arrivals</span>
+                </p>
+            </div>
+            <button class="ikr">Buy</button>
+        </div>
+        <!-- end of items -->
+
+    </div>
+</div>
+
+    </section>
+    <script>
+    const menuBtns = document.querySelectorAll('.menu-btn');
+    const foodItems = document.querySelectorAll('.food-item');
+
+        let activeBtn = "featured";
+        showFoodMenu(activeBtn);
+
+        menuBtns.forEach((btn) => {
+            btn.addEventListener('click',() =>{
+                resetActiveBtn();
+                showFoodMenu(btn.id);
+                btn.classList.add('active-btn');
+
+            }); 
+        });
+function resetActiveBtn(){
+    menuBtns.forEach((btn) => {
+        btn.classList.remove('active-btn');
+    });
+}
+function showFoodMenu(newMenuBtn){
+    activeBtn = newMenuBtn;
+    foodItems.forEach((item) => {
+        if(item.classList.contains(activeBtn)){
+            item.style.display ="grid";
+        }else{
+            item.style.display ="none";
+        }
+        });
+}
+
+    </script>
+</body>
+</html>
